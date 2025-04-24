@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DataAttributeController from "./data_attribute_controller"
+application.register("data-attribute", DataAttributeController)
+
 import PwaController from "./pwa_controller"
 application.register("pwa", PwaController)
