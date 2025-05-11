@@ -1,2 +1,14 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "./components/pagy.css";
+
+a {
+    text-decoration: none;
+}
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+li {
+    padding-left: 0;
+}
