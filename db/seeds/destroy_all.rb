@@ -1,9 +1,13 @@
 puts "Starting to empty the database..."
 
 models = [
-  User
+  User,
+  User::Profile,
+  Topic,
+  Group::Member,
+  Group::Session,
+  Group
 ]
-
 
 ActiveRecord::Base.transaction do
   models.each do |model|
@@ -16,4 +20,4 @@ ActiveRecord::Base.transaction do
   end
 end
 
-puts "All tables have been emptied successfully."
+puts "✅ All tables have been emptied successfully."
