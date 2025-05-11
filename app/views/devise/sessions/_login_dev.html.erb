@@ -3,13 +3,15 @@
     <tr>
       <th scope="col" class="px-6 py-3 text-left font-medium text-gray-500 uppercase">Email</th>
       <th scope="col" class="px-6 py-3 text-left font-medium text-gray-500 uppercase">Nom</th>
+      <th scope="col" class="px-6 py-3 text-left font-medium text-gray-500 uppercase">Role</th>
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200">
     <% User.all.order(:created_at).each do |user| %>
       <tr class="cursor-pointer odd:bg-white even:bg-gray-50 hover:bg-gray-100" data-email="<%= user.email %>" data-password="password123">
         <td class="px-6 py-4 whitespace-nowrap"><%= user.email %></td>
-        <td class="px-6 py-4 whitespace-nowrap"><%= user.fullname %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= user.member? ? user.username : user.fullname %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= user.role %></td>
       </tr>
     <% end %>
   </tbody>

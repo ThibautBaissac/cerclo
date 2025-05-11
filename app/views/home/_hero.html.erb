@@ -1,0 +1,8 @@
+<div class="container mx-auto prose hero-section text-center h-[50vh] flex flex-col justify-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Relevez les plus grands défis de la vie avec un groupe de pairs</h1>
+    <div class="flex flex-col sm:flex-row justify-center gap-2 px-4">
+        <%= render BadgeComponent.new(text: t("topic.categories.work"), size: "lg", color: 'indigo') %>
+        <%= render BadgeComponent.new(text: t("topic.categories.family"), size: "lg", color: 'orange') %>
+        <%= render BadgeComponent.new(text: t("topic.categories.wellness"), size: "lg", color: 'lime') %>
+    </div>
+</div>

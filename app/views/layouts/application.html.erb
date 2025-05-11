@@ -23,8 +23,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="prose max-w-full">
+    <%= render("shared/navbar") %>
     <%= render("shared/pwa") %>
     <%= yield %>
+    <%= render("shared/footer") %>
   </body>
 </html>

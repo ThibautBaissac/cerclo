@@ -1,0 +1,45 @@
+---
+fr:
+  activerecord:
+    attributes:
+      group:
+        description: Description
+        max_participants: Nombre de participants maximum
+        min_participants: Nombre de participants minimum
+        subtitle: Sous-titre
+        title: Titre
+      group_member:
+        status: Statut
+      topic:
+        category: Categorie
+        name: Nom
+      user:
+        username: Nom d'utilisateur
+        role: Role
+        email: e-mail
+      user_profile:
+        bio: Biographie
+        firstname: Prénom
+        lastname: Nom
+        short_bio: Biographie courte
+    errors:
+      messages:
+        blank: Ce champ ne peut pas être vide
+        record_invalid: "La validation échouée : %{errors}"
+      models:
+        user:
+          attributes:
+            username:
+              format: ne peut contenir que des lettres, des chiffres et des tirets
+    models:
+      user:
+        one: Utilisateur
+        other: Utilisateurs
+      user_profile: Profile utilisateur
+      group:
+        one: Groupe de soutien
+        other: Groupes de soutien
+      topic:
+        one: Sujet
+        other: Sujets
+      group_member: Participant

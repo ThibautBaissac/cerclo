@@ -1,0 +1,24 @@
+<%= render(NavbarComponent.new(theme: "light", menu_position: "right")) do |navbar| %>
+  <% navbar.with_logo do %>
+    <%= link_to root_path, class: "flex items-center" do %>
+        <%= render "shared/logo", size: "12" %>
+      <span class="text-3xl font-bold text-indigo-600">Cerclo</span>
+    <% end %>
+  <% end %>
+
+  <% navbar.with_link do %>
+    <%= link_to "A propos", "#" %>
+  <% end %>
+
+  <% navbar.with_link do %>
+      <%= link_to "Devenir faciliteur",  "#" %>
+  <% end %>
+
+  <% navbar.with_link do %>
+    <%= link_to "Se connecter",  "#" %>
+  <% end %>
+
+  <% navbar.with_primary_action do %>
+    <%= link_to "Trouver un groupe",  "#" %>
+  <% end %>
+<% end %>
