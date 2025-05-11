@@ -21,7 +21,7 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "view_component"
 source "https://dGJhaXNzYWNAcHJvdG9uLm1l@get.railsdesigner.com/private" do
-  gem "rails_designer", "~> 1.13.1"
+  gem "rails_designer", "~> 1.14.0"
 end
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
