@@ -1,11 +1,12 @@
 class AddAttributesToUsers < ActiveRecord::Migration[8.1]
   def change
-    add_column(:users, :firstname, :string)
-    add_column(:users, :lastname, :string)
-    add_column(:users, :bio, :text)
-    add_column(:users, :phone, :string)
-    add_column(:users, :address, :string)
-    add_column(:users, :city, :string)
-    add_column(:users, :zip_code, :string)
+    add_column(:users, :uuid, :string, null: false)
+    add_index(:users, :uuid, unique: true)
+
+    add_column(:users, :username, :string, null: false)
+    add_index(:users, :username)
+
+    add_column(:users, :role, :integer, default: 0, null: false)
+    add_column(:users, :super_admin, :boolean, default: false, null: false)
   end
 end
