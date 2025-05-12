@@ -8,3 +8,8 @@ fr:
       life: Transitions de vie
       health: Pathologies et Conditions spécifiques
       health_professional: Professnions du soint de de l'aide
+  group:
+    frequencies:
+      daily: Quotidien
+      biweekly: 2x / semaine
+      weekly: 1x / semaine
