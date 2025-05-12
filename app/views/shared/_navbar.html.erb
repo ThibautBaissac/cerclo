@@ -16,7 +16,7 @@
 
   <% navbar.with_link do %>
     <%= link_to "Se connecter",  "#" %>
-  <% end %>
+  <% end unless user_signed_in? %>
 
   <% navbar.with_primary_action do %>
     <%= link_to "Trouver un groupe",  groups_path %>
