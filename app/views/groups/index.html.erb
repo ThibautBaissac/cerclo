@@ -1,0 +1,20 @@
+<div class="container mx-auto px-4 py-12 mt-12">
+    <h1 class="text-3xl font-bold text-center mb-8">Available Groups</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% @groups.each do |group| %>
+            <div class="rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-50">
+                <div class="p-6">
+                    <div class="mb-4">
+                        <h2 class="text-xl font-bold text-gray-800"><%= group.title %></h2>
+                        <p class="text-gray-600 mt-1"><%= group.subtitle %></p>
+                        <%= link_to "Voir les détails", group_path(group), class: "inline-block mt-3 text-blue-600 hover:text-blue-800 font-medium" %>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-500"><%= group.facilitator.job %></p>
+                        <p class="text-base font-semibold"><%= group.facilitator.fullname %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
