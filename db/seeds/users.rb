@@ -6,8 +6,7 @@ User.create!(
   email: 'super_admin@example.com',
   password: 'password123',
   username: 'admin',
-  role: :admin,
-  super_admin: true,
+  role: :super_admin,
   confirmed_at: Time.current
 )
 puts "-- Created super admin user"
