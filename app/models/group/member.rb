@@ -2,22 +2,20 @@ class Group::Member < ApplicationRecord
   belongs_to :user
   belongs_to :group
 
-  enum :status, {
-    confirmed: 0,
-    present: 1,
-    rejected: 2,
-    waitlisted: 3,
-    invited: 4
-  }, default: :confirmed
-
   validates :user_id, uniqueness: {scope: :group_id, message: "est déjà membre de ce groupe"}
   validate :validate_group_capacity, on: :create, if: -> { confirmed? }
 
+  enum :status, {
+    confirmed: 0,
+    rejected: 1,
+    waitlisted: 2
+  }, default: :confirmed
+
   scope :confirmed, -> { where(status: :confirmed) }
-  scope :present, -> { where(status: :present) }
   scope :rejected, -> { where(status: :rejected) }
   scope :waitlisted, -> { where(status: :waitlisted) }
-  scope :invited, -> { where(status: :invited) }
+
+  delegate :username, to: :user, allow_nil: true
 
   private
 
