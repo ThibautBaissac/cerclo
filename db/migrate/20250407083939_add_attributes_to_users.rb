@@ -7,6 +7,5 @@ class AddAttributesToUsers < ActiveRecord::Migration[8.1]
     add_index(:users, :username)
 
     add_column(:users, :role, :integer, default: 0, null: false)
-    add_column(:users, :super_admin, :boolean, default: false, null: false)
   end
 end
