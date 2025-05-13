@@ -1,0 +1,74 @@
+<%= form_with(model: group, class: "space-y-6") do |f| %>
+  <% if group.errors.any? %>
+    <div class="rounded-md bg-red-50 p-4">
+      <div class="flex">
+        <div class="ml-3">
+          <h3 class="text-sm font-medium text-red-800">
+            <%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:
+          </h3>
+          <div class="mt-2 text-sm text-red-700">
+            <ul class="list-disc space-y-1 pl-5">
+              <% group.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+    <p class="mt-1 text-sm text-gray-500">Between 10 and 100 characters</p>
+  </div>
+
+  <div>
+    <%= f.label :sub_title, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :sub_title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+    <p class="mt-1 text-sm text-gray-500">Optional, maximum 200 characters</p>
+  </div>
+
+  <div>
+    <%= f.label :description, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_area :description, rows: 5, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+    <p class="mt-1 text-sm text-gray-500">Between 100 and 5000 characters</p>
+  </div>
+
+  <div>
+    <%= f.label :topic_id, "Topic", class: "block text-sm font-medium text-gray-700" %>
+    <%= f.collection_select :topic_id, @topics, :id, :name, { prompt: "Select a topic" }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div>
+      <%= f.label :min_participants, "Minimum Participants", class: "block text-sm font-medium text-gray-700" %>
+      <%= f.number_field :min_participants, min: Group::MIN_PARTICIPANTS_COUNT, max: Group::MAX_PARTICIPANTS_COUNT, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+      <p class="mt-1 text-sm text-gray-500">Minimum: <%= Group::MIN_PARTICIPANTS_COUNT %></p>
+    </div>
+
+    <div>
+      <%= f.label :max_participants, "Maximum Participants", class: "block text-sm font-medium text-gray-700" %>
+      <%= f.number_field :max_participants, min: Group::MIN_PARTICIPANTS_COUNT, max: Group::MAX_PARTICIPANTS_COUNT, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+      <p class="mt-1 text-sm text-gray-500">Maximum: <%= Group::MAX_PARTICIPANTS_COUNT %></p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div>
+      <%= f.label :duration, "Duration (minutes)", class: "block text-sm font-medium text-gray-700" %>
+      <%= f.number_field :duration, min: Group::MIN_DURATION, max: Group::MAX_DURATION, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+      <p class="mt-1 text-sm text-gray-500">Between <%= Group::MIN_DURATION %> and <%= Group::MAX_DURATION %> minutes</p>
+    </div>
+
+    <div>
+      <%= f.label :frequency, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.select :frequency, Group.frequencies.keys.map { |f| [f.titleize, f] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <%= f.submit class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+  </div>
+<% end %>
