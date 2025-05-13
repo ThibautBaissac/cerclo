@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [ :index ], controller: :home
   resources :groups, only: [ :index, :show, :new, :create, :edit, :update ]
+  resource :user, only: [:show, :edit, :update], controller: :user
 
   # Defines the root path route ("/")
   root "home#index"
