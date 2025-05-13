@@ -1,19 +1,19 @@
 <div class="pt-36">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    <%= render "groups/header", group: @group %>
+    <%= render "groups/show/header", group: @group %>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Main Content -->
       <div class="lg:col-span-2">
-          <%= render "groups/description", group: @group %>
-        <%= render "groups/next_session", next_session: @next_session %>
-        <%= render "groups/members", group: @group %>
+          <%= render "groups/show/description", group: @group %>
+        <%= render "groups/show/next_session", next_session: @next_session %>
+        <%= render "groups/show/members", group: @group %>
       </div>
 
       <!-- Sidebar -->
       <div class="lg:col-span-1">
         <!-- Facilitator -->
-        <%= render "groups/facilitator", group: @group %>
+        <%= render "groups/show/facilitator", group: @group %>
       </div>
     </div>
   </div>

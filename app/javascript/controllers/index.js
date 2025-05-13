@@ -7,5 +7,8 @@ import { application } from "./application"
 import DataAttributeController from "./data_attribute_controller"
 application.register("data-attribute", DataAttributeController)
 
+import FilterController from "./filter_controller"
+application.register("filter", FilterController)
+
 import PwaController from "./pwa_controller"
 application.register("pwa", PwaController)
